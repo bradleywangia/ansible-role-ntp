@@ -1,1 +1,9 @@
 box: typester/ubuntu14.04-ansible@1.6.6
+build:
+  steps:
+    -  script:
+        name: test ansible configs 
+        code: |-
+          echo localhost > inventory 
+          ansible-playbook -i inventory --syntax-check role.yml
+          ansible-playbook -i inventory --connection=local --sudo -vvvv role.yml 
