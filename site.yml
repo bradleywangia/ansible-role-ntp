@@ -1,0 +1,12 @@
+---
+# This playbook deploys a simple standalone Tomcat 7 server. 
+
+- hosts: localhost 
+  user: root
+
+  pre_tasks:
+    - name: apt update
+      apt: update_cache=yes
+
+  roles:
+    - '.'
