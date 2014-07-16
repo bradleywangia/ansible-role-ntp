@@ -4,6 +4,7 @@ build:
     -  script:
         name: test ansible configs 
         code: |-
+          pwd;ls -lat 
           echo localhost > inventory 
           ansible-playbook -i inventory --syntax-check role.yml
           ansible-playbook -i inventory --connection=local --sudo -vvvv role.yml 
